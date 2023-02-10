@@ -34,6 +34,10 @@ resource "aws_lambda_function" "lambda_function" {
   timeout       = var.lambda_timeout
   image_uri     = docker_registry_image.image.name
   package_type  = "Image"
+
+  environment {
+    OPENSEARCH_ENDPOINT = var.opensearch_endpoint
+  }
 }
 
 resource "aws_lambda_event_source_mapping" "read_dynamodb_stream" {

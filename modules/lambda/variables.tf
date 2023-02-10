@@ -19,3 +19,7 @@ variable "image_tag" {
 variable "lambda_timeout" {
   default = 30
 }
+
+variable "opensearch_endpoint" {
+  description = "Endpoint to query opensearch cluster"
+}
