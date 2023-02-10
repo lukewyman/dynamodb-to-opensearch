@@ -53,3 +53,21 @@ data "aws_iam_policy_document" "change_stream_policy" {
     ]
   }
 }
+
+data "aws_iam_policy_document" "opensearch_policy" {
+
+  statement {
+    sid = "opensearchpolicy"
+
+    effect = "Allow"
+
+    actions = [
+      "es:ESHttpDelete",
+      "es:ESHttpGet",
+      "es:ESHttpPost",
+      "es:ESHttpPut"
+    ]
+
+    resources = ["${var.opensearch_endpoint}/*"]
+  }
+}
