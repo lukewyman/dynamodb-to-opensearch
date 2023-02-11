@@ -67,7 +67,7 @@ data "aws_iam_policy_document" "opensearch_policy" {
       "es:ESHttpPost",
       "es:ESHttpPut"
     ]
-
-    resources = ["${var.opensearch_endpoint}/*"]
+    
+    resources = ["arn:aws:es:${var.aws_region}:${data.aws_caller_identity.current.account_id}:domain/books/*"]
   }
 }
