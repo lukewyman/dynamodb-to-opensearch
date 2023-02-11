@@ -7,7 +7,7 @@ data "aws_iam_policy_document" "os_resource_policy" {
     effect = "Allow"
 
     principals {
-      type = "*"
+      type        = "*"
       identifiers = ["*"]
     }
 

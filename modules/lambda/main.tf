@@ -28,6 +28,12 @@ resource "aws_iam_role_policy" "lambda_change_stream_policy" {
   policy = data.aws_iam_policy_document.change_stream_policy.json
 }
 
+resource "aws_iam_role_policy" "lambda_opensearch_policy" {
+  name = "lambda-open-search-policy"
+  role = aws_iam_role.lambda_role.id 
+  policy = data.aws_iam_policy_document.opensearch_policy.json
+}
+
 resource "aws_lambda_function" "lambda_function" {
   function_name = aws_ecr_repository.image_repo.name
   role          = aws_iam_role.lambda_role.arn
@@ -36,7 +42,10 @@ resource "aws_lambda_function" "lambda_function" {
   package_type  = "Image"
 
   environment {
-    OPENSEARCH_ENDPOINT = var.opensearch_endpoint
+    variables = {
+      OPENSEARCH_ENDPOINT = var.opensearch_endpoint
+      INDEX_NAME          = var.index_name
+    }
   }
 }
 

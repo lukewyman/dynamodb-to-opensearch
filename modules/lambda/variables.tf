@@ -9,11 +9,11 @@ variable "table_arn" {
 
 variable "change_stream_arn" {
   description = "ARN for DynamoDB change stream."
-  default     = "arn:aws:dynamodb:us-west-2:919980474747:table/dynamodb-to-opensearch-apigw-poc-books/stream/2023-02-04T05:40:17.192"
+  default     = "arn:aws:dynamodb:us-west-2:919980474747:table/dynamodb-to-opensearch-apigw-poc-books/stream/2023-02-10T22:18:56.811"
 }
 
 variable "image_tag" {
-  default = 1
+  default = 2
 }
 
 variable "lambda_timeout" {
@@ -22,4 +22,10 @@ variable "lambda_timeout" {
 
 variable "opensearch_endpoint" {
   description = "Endpoint to query opensearch cluster"
+  default     = "search-books-xlhmnweidspjv5vvshywja5p5m.us-west-2.es.amazonaws.com"
+}
+
+variable "index_name" {
+  description = "Name of the Opensearch index that will be updated by the Lambda."
+  default     = "books"
 }
