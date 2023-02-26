@@ -5,7 +5,6 @@ This project demonstrates how to automatically update indices in an Opensearch d
 ## Architecture
 <p style="text-align:center">
 <img src="arch-diagram.jpeg" width="600"></p>
-<br />
 
 ### Flow
 1. CRUD operations from the API Gateway REST API are applied against a DynamoDB table, which has DynamoDB Stream enabled.
