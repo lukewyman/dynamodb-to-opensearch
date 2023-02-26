@@ -1,19 +1,18 @@
 variable "aws_region" {
-  default = "us-west-2"
 }
 
 variable "domain_name" {
-  default = "books"
+  description = "Opensearch domain name"
 }
 
 variable "instance_type" {
-  default = "t3.small.search"
+  description = "Instance type for Opensearch domain"
 }
 
 variable "engine_version" {
-  default = "OpenSearch_2.3"
+  description = "Opensearch engine version"
 }
 
 variable "my_ip" {
-  default = "142.79.208.99"
+  description = "IP address that has access to the Opensearch domain."
 }
